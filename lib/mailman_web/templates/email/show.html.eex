@@ -1,0 +1,23 @@
+<h1>Show Email</h1>
+
+<ul>
+
+  <li>
+    <strong>Recipient:</strong>
+    <%= @email.recipient %>
+  </li>
+
+  <li>
+    <strong>Subject:</strong>
+    <%= @email.subject %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @email.content %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.email_path(@conn, :edit, @email) %></span>
+<span><%= link "Back", to: Routes.email_path(@conn, :index) %></span>

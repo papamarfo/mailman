@@ -1,0 +1,32 @@
+<h2>Email History</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Recipient</th>
+      <th>Subject</th>
+      <th>Content</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for email <- @emails do %>
+      <tr>
+        <td><%= email.recipient %></td>
+        <td><%= email.subject %></td>
+        <td><%= email.content %></td>
+        <td>
+          <span>
+            <%= link "Show", to: Routes.page_path(@conn, :show, email) %>
+          </span>
+          <span>
+            <%= link "Delete", to: Routes.page_path(@conn, :delete, email), method: :delete, data: [confirm: "Are you sure?"] %>  
+          </span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<span>
+  <%= link "Create New Email", to: Routes.page_path(@conn, :new) %>
+</span>

@@ -1,0 +1,5 @@
+<h1>Edit Email</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.email_path(@conn, :update, @email)) %>
+
+<span><%= link "Back", to: Routes.email_path(@conn, :index) %></span>

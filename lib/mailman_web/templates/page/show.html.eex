@@ -1,0 +1,18 @@
+<h2>Email Confirmation</h2>
+<ul>
+  <li>
+    <strong>Recipient:</strong>
+    <%= @email.recipient %>
+  </li>
+  <li>
+    <strong>Subject:</strong>
+    <%= @email.subject %>
+  </li>
+  <li>
+    <strong>Content:</strong>
+    <%= @email.content %>
+  </li>
+</ul>
+<span>
+  <%= link "Back", to: Routes.page_path(@conn, :index) %>    
+</span>

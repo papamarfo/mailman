@@ -1,0 +1,30 @@
+<h1>Listing Emails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recipient</th>
+      <th>Subject</th>
+      <th>Content</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for email <- @emails do %>
+    <tr>
+      <td><%= email.recipient %></td>
+      <td><%= email.subject %></td>
+      <td><%= email.content %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.email_path(@conn, :show, email) %></span>
+        <span><%= link "Edit", to: Routes.email_path(@conn, :edit, email) %></span>
+        <span><%= link "Delete", to: Routes.email_path(@conn, :delete, email), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Email", to: Routes.email_path(@conn, :new) %></span>
