@@ -35,8 +35,8 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Please update the values for the mailer in `config/config.exs`.
 
+#### Example configuration with ['mailtrap'](https://mailtrap.io)
 ```bash
-# Example configuration with ['mailtrap'](https://mailtrap.io)
 config :mailman, Mailman.Mailer,
   adapter: Bamboo.SMTPAdapter,
   server: "smtp.mailtrap.io",
@@ -49,8 +49,9 @@ config :mailman, Mailman.Mailer,
   no_mx_lookups: false, # can be `true`
   auth: :if_available # can be `:always`. If your smtp relay requires authentication set it to `:always`.
 ```
+
+#### Example configuration with ['sendgrid'](https://sendgrid.com)
 ```bash
-# Example configuration with ['sendgrid'](https://sendgrid.com)
 config :mailman, Mailman.Mailer,
   adapter: Bamboo.SMTPAdapter,
   server: "smtp.sendgrid.net",
