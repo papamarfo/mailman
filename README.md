@@ -2,7 +2,7 @@
 Learn how to send emails in Phoenix
 
 ## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+These instructions will get you a copy of the project up and running on your local machine for development purposes.
 
 
 ### Installing
@@ -25,52 +25,40 @@ mix ecto.setup
 # install Node.js dependencies with
 cd assets && npm install
 
-# start Phoenix endpoint with
-mix phx.server
+# make a copy of the .env.example to configure the application 
+# for your local environment
+cp .env.example .env
 ```
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
 
 ### Configuring the mail server
 
-Please update the values for the mailer in `config/config.exs`.
+Please update the values for the mail server in `.env`.
 
 #### Example configuration with ['mailtrap'](https://mailtrap.io)
 ```bash
-config :mailman, Mailman.Mailer,
-  adapter: Bamboo.SMTPAdapter,
-  server: "smtp.mailtrap.io",
-  port: 2525,
-  username: "a79bk040f94ebd", # or {:system, "SMTP_USERNAME"}
-  password: "1c8f225af691b1", # or {:system, "SMTP_PASSWORD"}
-  tls: :if_available, # can be `:always` or `:never`
-  ssl: false, # can be `true`
-  retries: 1,
-  no_mx_lookups: false, # can be `true`
-  auth: :if_available # can be `:always`. If your smtp relay requires authentication set it to `:always`.
+export MAIL_HOST=smtp.mailtrap.io
+export MAIL_PORT=2525
+export MAIL_USERNAME=a79bc040f92edb
+export MAIL_PASSWORD=1c8f115af621b1
 ```
 
 #### Example configuration with ['sendgrid'](https://sendgrid.com)
 ```bash
-config :mailman, Mailman.Mailer,
-  adapter: Bamboo.SMTPAdapter,
-  server: "smtp.sendgrid.net",
-  port: 2525,
-  username: "app134487840", # or {:system, "SMTP_USERNAME"}
-  password: "tlmefwfi9209", # or {:system, "SMTP_PASSWORD"}
-  tls: :if_available, # can be `:always` or `:never`
-  ssl: false, # can be `true`
-  retries: 1,
-  no_mx_lookups: false, # can be `true`
-  auth: :if_available # can be `:always`. If your smtp relay requires authentication set it to `:always`.
+export MAIL_HOST=smtp.sendgrid.net
+export MAIL_PORT=2525
+export MAIL_USERNAME=a79bc040f92edb
+export MAIL_PASSWORD=1c8f115af621b1
 ```
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+### Running the application
 
-## Learn more
+Load the `.env` file and run Phoenix server:
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+```bash
+# load the configuration in the .env file. NB: Use git bash if you are on windows
+source .env
+
+# start Phoenix endpoint with
+mix phx.server
+```
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
