@@ -25,10 +25,10 @@ config :logger, :console,
 # Configures Elixir's Mailer
 config :mailman, Mailman.Mailer,
   adapter: Bamboo.SMTPAdapter,
-  server: "",
-  port: 2525,
-  username: "", # or {:system, "SMTP_USERNAME"}
-  password: "", # or {:system, "SMTP_PASSWORD"}
+  server: System.get_env("MAIL_HOST"),
+  port: System.get_env("MAIL_PORT"),
+  username: System.get_env("MAIL_USERNAME"),
+  password: System.get_env("MAIL_PASSWORD"),
   tls: :if_available, # can be `:always` or `:never`
   ssl: false, # can be `true`
   retries: 1,
